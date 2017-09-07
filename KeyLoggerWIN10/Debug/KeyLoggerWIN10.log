@@ -1,0 +1,4 @@
+﻿  main.cpp
+d:\users\josip\documents\visual studio 2015\projects\keyloggerwin10\keyloggerwin10\main.cpp(65): warning C4477: 'fprintf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'int *'
+  KeyLoggerWIN10.vcxproj -> D:\Users\Josip\Documents\Visual Studio 2015\Projects\KeyLoggerWIN10\Debug\KeyLoggerWIN10.exe
+  KeyLoggerWIN10.vcxproj -> D:\Users\Josip\Documents\Visual Studio 2015\Projects\KeyLoggerWIN10\Debug\KeyLoggerWIN10.pdb (Full PDB)
