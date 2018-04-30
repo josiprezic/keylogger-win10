@@ -1,7 +1,7 @@
 KeyLoggerWIN10
 ==============
 
-This file is for educational purposes only.
+This file is for educational purposes only.\n
 Windows 10 KeyLogger with basic key capturing (english letters, numbers, capitalKey, shiftKey, backspaceKey, mouseKeys, enterKey, escapeKey).
 If you want to save keyLogger result to another destination, change the value of "textFilePath" variable. 
 If you want to balance between capturing precision and computer performace, change the value of "checkKeyboardEveryNMiliseconds" variable.
