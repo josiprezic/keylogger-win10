@@ -8,6 +8,8 @@ If you want to save keyLogger result to another destination, change the value of
 If you want to balance between capturing precision and computer performace, change the value of "checkKeyboardEveryNMiliseconds" variable.
 To turn off keyLogger, go to the Task Manager -> Processes -> KeyLoggerWIN10.exe -> End task
 
+Tools: Visual Studio IDE
+
 
 Task Manager screenshot:
 ![Screenshot_1](https://image.ibb.co/g5azZH/Screenshot_2.png)
