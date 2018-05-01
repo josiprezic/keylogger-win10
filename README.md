@@ -8,13 +8,13 @@ If you want to balance between capturing precision and computer performace, chan
 
 Tools: Visual Studio IDE  
 
-<b>USAGE:</b> 
-1. Copy <b>KeyLoggerWIN10.exe</b> file from <b>KeyLoggerWIN10/x64/Debug/</b> to custom location on your PC  
-2. Run <b>KeyLoggerWIN10.exe</b>   
+<b>BASIC USAGE:</b> 
+1. Copy <b>KeyLoggerWIN10.exe</b> file from <b>KeyLoggerWIN10/x64/Debug/</b> to custom location on your PC.  
+2. Run <b>KeyLoggerWIN10.exe.</b>   
 3. KeyLogger is now active.  
-3. After a while turn off KeyLoggerWIN10.exe in Task Manager.(Task Manager->Processes->KeyLoggerWIN10.exe->End task)  
-4. Go to the custom location (defined in step #1)  
-5. Open <b>text.txt</b> to see the result  
+3. After a while turn off KeyLoggerWIN10.exe in Task Manager->Processes->KeyLoggerWIN10.exe->End task.  
+4. Go to the custom location (defined in step #1).  
+5. Open <b>text.txt</b> to see the result.  
 
 
 Task Manager screenshot:
