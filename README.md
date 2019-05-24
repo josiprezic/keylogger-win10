@@ -6,6 +6,8 @@ Windows 10 KeyLogger with basic key capturing (english letters, numbers, capital
 If you want to save keyLogger result to another destination, change the value of "textFilePath" variable.   
 If you want to balance between capturing precision and computer performace, change the value of "checkKeyboardEveryNMiliseconds" variable.      
 
+A keylogger is a form of software which is used to track or log the all the keys that a user strikes on their keyboard, usually in secret so that the user doesn’t know that their actions are being monitored. Keylogger is short for keystroke logger and is otherwise known as a keyboard capturer. Keyloggers capture everything the user types — personal messages, passwords, credit card numbers etc.
+
 Tools: Visual Studio IDE  
 
 <b>BASIC USAGE:</b> 
